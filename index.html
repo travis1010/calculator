@@ -22,17 +22,17 @@
       <button class="num" value='4' onclick="displayNum(this)">4</button>
       <button class="num" value='5' onclick="displayNum(this)">5</button>
       <button class="num" value='6' onclick="displayNum(this)">6</button>
-      <button id="multiply">&#215;</button>
-      <button id="divide">&divide;</button>
+      <button id="multiply" onclick="operatorClicked('*')">&#215;</button>
+      <button id="divide" onclick="operatorClicked('/')">&divide;</button>
       <button class="num" value='1' onclick="displayNum(this)">1</button>
       <button class="num" value='2' onclick="displayNum(this)">2</button>
       <button class="num" value='3' onclick="displayNum(this)">3</button>
-      <button id="subtract">&#8722;</button>
+      <button id="subtract" onclick="operatorClicked('-')">&#8722;</button>
       <button id="clear" onclick="clearDisplay()">C</button>
       <button class="num" value='0' onclick="displayNum(this)">0</button>
       <button class="num" onclick="addDecimal()">.</button>
-      <button id="add">+</button>
-      <button id="equals">=</button>
+      <button id="add" onclick="operatorClicked('+')">+</button>
+      <button id="equals" onclick="equals()">=</button>
     </div>
   </div>
 </body>

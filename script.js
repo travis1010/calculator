@@ -31,11 +31,19 @@ function operate(operator, a, b) {
 
 function displayNum(num) {
   if (display.textContent.length >= 11) return;
-  display.textContent += num.value;
+  if (getNewNum) {
+    display.textContent = num.value;
+    getNewNum = false;
+  } else {
+    display.textContent += num.value;
+  }
   if (display.textContent[0] === '0' && display.textContent[1] != '.') {
     display.textContent = display.textContent.slice(1);
   } else if(display.textContent[0] === '-' && display.textContent[1] === '0' && display.textContent[2] != '.') {
     display.textContent = '-' + display.textContent.slice(2);
+  }
+  if (display.textContent == '') {
+    display.textContent = '0';
   }
 }
 
@@ -45,27 +53,79 @@ function backspace() {
   } else {
     display.textContent = '0';
   }
+  
 }
 
 function toggleNegative() {
-  if (display.textContent.length >= 11) return;
-  if (display.textContent[0] === '-') {
-    display.textContent = display.textContent.slice(1);
+  if(getNewNum = true) {
+    display.textContent = "-";
+    getNewNum = false;
   } else {
-    display.textContent = '-' + display.textContent;
+    if (display.textContent.length >= 11) return;
+    if (display.textContent[0] === '-') {
+      display.textContent = display.textContent.slice(1);
+    } else {
+      display.textContent = '-' + display.textContent;
+    }
   }
 }
 
 function clearDisplay() {
   display.textContent = '0';
+  savedNum = null;
+  currentOperator = null;
 }
 
 function addDecimal() {
   if (display.textContent.length >= 11) return;
+  if(getNewNum) {
+    display.textContent = '0.';
+  }
   if (!display.textContent.match(/\./)) {
     display.textContent += '.';
   }
+  getNewNum = false;
 }
+
+function operatorClicked(operator) {
+  
+  if(!savedNum) {
+    savedNum = Number(display.textContent);
+    display.textContent = '0';
+  } else {
+    opEquals();
+  }
+  currentOperator = operator;
+}
+
+function equals() {
+  if (!savedNum || !currentOperator) return;
+  display.textContent = operate(currentOperator, savedNum, Number(display.textContent));
+  getNewNum = true;
+  currentOperator = null;
+  savedNum = null;
+  //fix long decimals
+  if(display.textContent.match(/\./)) {
+    display.textContent = parseFloat(Number(display.textContent).toFixed(5))
+  }
+}
+
+function opEquals() {
+  if (!savedNum || !currentOperator) return;
+  display.textContent = operate(currentOperator, savedNum, Number(display.textContent));
+  savedNum = Number(display.textContent)
+  getNewNum = true;
+  //fix long decimals
+  if(display.textContent.match(/\./)) {
+    display.textContent = parseFloat(Number(display.textContent).toFixed(5))
+  }
+}
+
 
 const display = document.getElementById('display');
 display.textContent = '0';
+
+let savedNum = null;
+let getNewNum = true; //this var will track whether to add onto current number in display or start a new number
+let currentOperator = null;
+

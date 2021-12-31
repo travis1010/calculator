@@ -6,29 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculator</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div id="calc-body">
     <div id="title">Calcutron-9000</div>
-    <div id="display">99999</div>
+    <div id="display"></div>
     <div id="btn-grid">
-      <button class="num" value='7'>7</button>
-      <button class="num" value='8'>8</button>
-      <button class="num" value='9'>9</button>
-      <button id="negative">&#177;</button>
-      <button id="backspace">&#9224;</button>
-      <button class="num" value='4'>4</button>
-      <button class="num" value='5'>5</button>
-      <button class="num" value='6'>6</button>
+      <button class="num" value='7' onclick="displayNum(this)">7</button>
+      <button class="num" value='8' onclick="displayNum(this)">8</button>
+      <button class="num" value='9' onclick="displayNum(this)">9</button>
+      <button id="negative" onclick="toggleNegative()">&#177;</button>
+      <button id="backspace"><i class="bi bi-backspace" onclick="backspace()"></i></button>
+      <button class="num" value='4' onclick="displayNum(this)">4</button>
+      <button class="num" value='5' onclick="displayNum(this)">5</button>
+      <button class="num" value='6' onclick="displayNum(this)">6</button>
       <button id="multiply">&#215;</button>
       <button id="divide">&divide;</button>
-      <button class="num" value='1'>1</button>
-      <button class="num" value='2'>2</button>
-      <button class="num" value='3'>3</button>
+      <button class="num" value='1' onclick="displayNum(this)">1</button>
+      <button class="num" value='2' onclick="displayNum(this)">2</button>
+      <button class="num" value='3' onclick="displayNum(this)">3</button>
       <button id="subtract">&#8722;</button>
-      <button id="clear">C</button>
-      <button class="num" value='0'>0</button>
-      <button class="num">.</button>
+      <button id="clear" onclick="clearDisplay()">C</button>
+      <button class="num" value='0' onclick="displayNum(this)">0</button>
+      <button class="num" onclick="addDecimal()">.</button>
       <button id="add">+</button>
       <button id="equals">=</button>
     </div>

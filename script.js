@@ -32,10 +32,10 @@ function operate(operator, a, b) {
 function displayNum(num) {
   if (display.textContent.length >= 11) return;
   if (getNewNum) {
-    display.textContent = num.value;
+    display.textContent = num;
     getNewNum = false;
   } else {
-    display.textContent += num.value;
+    display.textContent += num;
   }
   if (display.textContent[0] === '0' && display.textContent[1] != '.') {
     display.textContent = display.textContent.slice(1);
@@ -57,7 +57,7 @@ function backspace() {
 }
 
 function toggleNegative() {
-  if(getNewNum = true) {
+  if(getNewNum == true) {
     display.textContent = "-";
     getNewNum = false;
   } else {
@@ -67,6 +67,9 @@ function toggleNegative() {
     } else {
       display.textContent = '-' + display.textContent;
     }
+  }
+  if(display.textContent == '') {
+    display.textContent = '0';
   }
 }
 
@@ -129,3 +132,41 @@ let savedNum = null;
 let getNewNum = true; //this var will track whether to add onto current number in display or start a new number
 let currentOperator = null;
 
+//keyboard functionality:
+window.addEventListener('keydown', function (e) {
+  console.log(`key pressed: ${e.key}`)
+  console.log(`typeof: ${typeof e.key}`)
+  switch (e.key) {
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+    case '0':
+      displayNum(e.key);
+      break;
+    case 'c':
+      clearDisplay();
+      break;
+    case 'Backspace':
+      backspace();
+      break;
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+      operatorClicked(e.key);
+      break;
+    case 'Enter':
+    case '=':
+      equals();
+      break;
+    case '.':
+      addDecimal()
+      break;
+  }
+});

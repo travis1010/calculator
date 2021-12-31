@@ -14,26 +14,27 @@
     <div id="title">Calcutron-9000</div>
     <div id="display"></div>
     <div id="btn-grid">
-      <button class="num" value='7' onclick="displayNum(this)">7</button>
-      <button class="num" value='8' onclick="displayNum(this)">8</button>
-      <button class="num" value='9' onclick="displayNum(this)">9</button>
+      <button class="num" value='7' onclick="displayNum(this.value)">7</button>
+      <button class="num" value='8' onclick="displayNum(this.value)">8</button>
+      <button class="num" value='9' onclick="displayNum(this.value)">9</button>
       <button id="negative" onclick="toggleNegative()">&#177;</button>
       <button id="backspace"><i class="bi bi-backspace" onclick="backspace()"></i></button>
-      <button class="num" value='4' onclick="displayNum(this)">4</button>
-      <button class="num" value='5' onclick="displayNum(this)">5</button>
-      <button class="num" value='6' onclick="displayNum(this)">6</button>
+      <button class="num" value='4' onclick="displayNum(this.value)">4</button>
+      <button class="num" value='5' onclick="displayNum(this.value)">5</button>
+      <button class="num" value='6' onclick="displayNum(this.value)">6</button>
       <button id="multiply" onclick="operatorClicked('*')">&#215;</button>
       <button id="divide" onclick="operatorClicked('/')">&divide;</button>
-      <button class="num" value='1' onclick="displayNum(this)">1</button>
-      <button class="num" value='2' onclick="displayNum(this)">2</button>
-      <button class="num" value='3' onclick="displayNum(this)">3</button>
+      <button class="num" value='1' onclick="displayNum(this.value)">1</button>
+      <button class="num" value='2' onclick="displayNum(this.value)">2</button>
+      <button class="num" value='3' onclick="displayNum(this.value)">3</button>
       <button id="subtract" onclick="operatorClicked('-')">&#8722;</button>
       <button id="clear" onclick="clearDisplay()">C</button>
-      <button class="num" value='0' onclick="displayNum(this)">0</button>
+      <button class="num" value='0' onclick="displayNum(this.value)">0</button>
       <button class="num" onclick="addDecimal()">.</button>
       <button id="add" onclick="operatorClicked('+')">+</button>
       <button id="equals" onclick="equals()">=</button>
     </div>
   </div>
+  <p>(Now With Keyboard Functionality!)</p>
 </body>
 </html>

@@ -11,6 +11,7 @@ body {
   background-repeat: repeat;
   background-color: #fcfcfc; 
   display: flex;
+  flex-direction: column;
   height: 100vh;
   padding: 0px;
   margin: 0px;
@@ -100,4 +101,20 @@ button {
 
 button:hover {
   filter: brightness(75%);
+}
+button:active {
+  filter: brightness(55%);
+}
+
+button:focus {
+  outline: none;
+}
+
+.buttonPressed {
+  filter: brightness(55%);
+}
+
+p {
+  margin: 24px;
+  font-size: 22px;
 }

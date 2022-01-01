@@ -53,7 +53,7 @@ body {
   font-family: 'digital-clock-font';
   height: 58px;
   padding-right: 3px;
-  padding-bottom: 3px;
+  /**padding-bottom: 3px;  taking this out to test on windows**/ 
   display: flex;
   align-items: center;
 }

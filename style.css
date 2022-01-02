@@ -37,23 +37,16 @@ body {
   color: white;
 }
 
-@font-face {
-  font-family:'digital-clock-font';
-  src: url('digital-7\ \(mono\).ttf');
-}
-
 #display {
   box-sizing: border-box;
   margin: 0px 15px;
-  font-size: 64px;
+  font-size: 44px;
   justify-content: flex-end;
   border: 2px solid rgba(0,0,0, 0.3);
   background-color: gray;
   background-image: linear-gradient(.25turn, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
-  font-family: 'digital-clock-font';
-  height: 58px;
+  font-family: 'PT Mono', monospace;
   padding-right: 3px;
-  /**padding-bottom: 3px;  taking this out to test on windows**/ 
   display: flex;
   align-items: center;
 }
@@ -77,6 +70,7 @@ button {
   border-radius: 3px;
   box-shadow: 0px 0px 4px black;
   background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.3));
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 

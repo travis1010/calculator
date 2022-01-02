@@ -134,8 +134,7 @@ let currentOperator = null;
 
 //keyboard functionality:
 window.addEventListener('keydown', function (e) {
-  console.log(`key pressed: ${e.key}`)
-  console.log(`typeof: ${typeof e.key}`)
+  this.document.getElementById('equals').focus();
   switch (e.key) {
     case '1':
     case '2':
